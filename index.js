@@ -4,6 +4,37 @@ let solarpanel = null;
 
 const baseurl = "http://localhost:8080/api/solarpanel";
 
+////////////////////    Private getters for material table row    //////////////
+const getMaterialFromAbbr = (abbr) => {
+  switch (abbr) {
+    case "poly-Si":
+      return "POLY_SI";
+    case "mono-Si":
+      return "MONO_SI";
+    case "a-Si":
+      return "A_SI";
+    case "CdTe":
+      return "CD_TE";
+    case "CIGS":
+      return "CIGS";
+  }
+}
+
+const getAbbrFromMaterial = (material) => {
+  switch (material) {
+    case "POLY_SI":
+      return "poly-Si";
+    case "MONO_SI":
+      return "mono-Si";
+    case "A_SI":
+      return "a-Si";
+    case "CD_TE":
+      return "CdTe";
+    case "CIGS":
+      return "CIGS";
+  }
+}
+
 ///////////////////////////////    RESETS    ////////////////////////////////////
 const resetPanelsTable = () => {
   const allPanelsTable = document.querySelector(".allPanels");
@@ -60,6 +91,7 @@ const hideFormAndTable = () => {
   allPanelsTable.classList.add(`hidden`);
   addFormContainer.classList.add(`hidden`);
 }
+
 ///////////////////////     Creates      //////////////////////////////////////
 const createPanelsTable = (solarpanels) => {
 
@@ -191,38 +223,8 @@ const validateInputs = (nameInput, rowInput, columnInput, yearInstalledInput, tr
   return isError;
 }
 
-const getMaterialFromAbbr = (abbr) => {
-  switch (abbr) {
-    case "poly-Si":
-      return "POLY_SI";
-    case "mono-Si":
-      return "MONO_SI";
-    case "a-Si":
-      return "A_SI";
-    case "CdTe":
-      return "CD_TE";
-    case "CIGS":
-      return "CIGS";
-  }
-}
-
-const getAbbrFromMaterial = (material) => {
-  switch (material) {
-    case "POLY_SI":
-      return "poly-Si";
-    case "MONO_SI":
-      return "mono-Si";
-    case "A_SI":
-      return "a-Si";
-    case "CD_TE":
-      return "CdTe";
-    case "CIGS":
-      return "CIGS";
-  }
-}
-
+/////////////////////    Success or Error message on submit    /////////////////
 const updateFormMessage = (message, isSuccess) => {
-  console.log("im in updateFormMessage");
   const formMessageDiv = document.querySelector(".formMessage");
   formMessageDiv.classList.remove(`hidden`);
   const notificationDiv = formMessageDiv.querySelector(".notification");
@@ -244,7 +246,7 @@ const updateFormMessage = (message, isSuccess) => {
   }, 4000);
 }
 
-const handleAddOrEditPanel = (isEditing) => {
+const handleSubmitPanel = (isEditing) => {
 
   const addFormContainer = document.querySelector(".addFormContainer");
   const nameInput = addFormContainer.querySelector(".nameInput");
@@ -284,11 +286,10 @@ const addFormEventListeners = () => {
 
   const submitButton = document.querySelector(".submitButton");
   submitButton.addEventListener("click", () => {
-    console.log("going to run handle submit panel");
     if (submitButton.classList.contains("editing")) {
-      handleAddOrEditPanel(true);
+      handleSubmitPanel(true);
     } else {
-      handleAddOrEditPanel(false);
+      handleSubmitPanel(false);
     }
   })
 
