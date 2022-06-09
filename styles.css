@@ -1,0 +1,11 @@
+.hidden {
+  display: none;
+}
+
+.addFormContainer {
+  margin-top: 2rem;
+}
+
+.icon-inner {
+  cursor: pointer;
+}

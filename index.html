@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Solarfarm App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <!-- HEADER -->
+    <section class="hero is-primary has-text-centered">
+      <div class="hero-body">
+        <p class="title is-size-1">
+          Solar Farm App
+        </p>
+        <p class="subtitle">
+          Welcome! Let us serve all your administration needs
+        </p>
+      </div>
+    </section>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        <li ><a class="allPanelsLink" href="#">View all panels</a></li>
+        <li><a class="viewBySectionLink" href="#">View by Section</a></li>
+      </ul>
+    </nav>
+
+    <!-- SUCCESS OR ERROR MESSAGE FOR FORMS -->
+    <div class="columns formMessage">
+      <div class="column is-half">
+        <div class="notification is-primary hidden">
+        </div>
+      </div>
+    </div>
+
+    <div class="container is-widescreen">
+      <div class="container">
+        <button class="button is-primary addPanelLink">Add Panel</button>
+      </div>
+
+      <table class="table is-hoverable is-striped allPanels">
+        <thead>
+          <tr>
+            <th><abbr title="count"></abbr></th>
+            <th><abbr title="Section">Section</abbr></th>
+            <th><abbr title="Row-Column">Row-Column</abbr></th>
+            <th><abbr title="Year Installed">Year Installed</abbr></th>
+            <th><abbr title="Material">Material</abbr></th>
+            <th><abbr title="Is Tracking?">Tracking</abbr></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th><abbr title="count"></abbr></th>
+            <th><abbr title="Section">Section</abbr></th>
+            <th><abbr title="Row-Column">Row-Column</abbr></th>
+            <th><abbr title="Year Installed">Year Installed</abbr></th>
+            <th><abbr title="Material">Material</abbr></th>
+            <th><abbr title="Is Tracking?">Is Tracking?</abbr></th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <!-- build table rows with javascript -->
+        </tbody>
+      </table>
+
+
+      <div class="container is-max-desktop hidden addFormContainer">
+        <div class="columns">
+          <div class="is-half">
+
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <input class="input nameInput" type="text" placeholder="Home home on the range..">
+              </div>
+              <p class="help nameMessage"></p>
+            </div>
+
+            <div class="field">
+              <label class="label">Row</label>
+              <div class="control">
+                <input class="input rowInput" type="text" placeholder="1">
+              </div>
+              <p class="help rowMessage"></p>
+            </div>
+
+            <div class="field">
+              <label class="label">Column</label>
+              <div class="control">
+                <input class="input columnInput" type="text" placeholder="24">
+              </div>
+              <p class="help columnMessage"></p>
+            </div>
+
+            <div class="field">
+              <label class="label">Year Installed</label>
+              <div class="control">
+                <input class="input yearInstalledInput" type="text" placeholder="2008">
+              </div>
+              <p class="help yearInstalledMessage"></p>
+            </div>
+
+            <div class="field">
+              <label class="label">Material</label>
+              <div class="control">
+                <div class="select">
+                  <select class="materialInput">
+                    <option>poly-Si</option>
+                    <option>mono-Si</option>
+                    <option>a-Si</option>
+                    <option>CdTe</option>
+                    <option>CIGS</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Tracking</label>
+              <div class="control">
+                <label class="radio">
+                  <input class="trackingYesInput" type="radio" name="question">
+                  Yes
+                </label>
+                <label class="radio">
+                  <input class="trackingNoInput" type="radio" name="question">
+                  No
+                </label>
+              </div>
+              <p class="help trackingMessage"></p>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link submitButton">Submit</button>
+              </div>
+              <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
