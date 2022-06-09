@@ -4,6 +4,7 @@ let solarpanel = null;
 
 const baseurl = "http://localhost:8080/api/solarpanel";
 
+///////////////////////////////    RESETS    ////////////////////////////////////
 const resetPanelsTable = () => {
   const allPanelsTable = document.querySelector(".allPanels");
   const tBody = allPanelsTable.tBodies[0];
@@ -16,6 +17,39 @@ const resetInputValues = () => {
   const rowInput = addFormContainer.querySelector(".rowInput").value = ``;
   const columnInput = addFormContainer.querySelector(".columnInput").value = ``;
   const yearInstalledInput = addFormContainer.querySelector(".yearInstalledInput").value = ``;
+}
+
+const resetInputStatus = () => {
+  const addFormContainer = document.querySelector(".addFormContainer");
+  const nameInput = addFormContainer.querySelector(".nameInput");
+  const rowInput = addFormContainer.querySelector(".rowInput");
+  const columnInput = addFormContainer.querySelector(".columnInput");
+  const yearInstalledInput = addFormContainer.querySelector(".yearInstalledInput");
+
+  nameInput.classList = `input nameInput`;
+  rowInput.classList = `input rowInput`;
+  columnInput.classList = `input columnInput`;
+  yearInstalledInput.classList = `input yearInstalledInput`;
+
+  const nameMessage = document.querySelector(".nameMessage");
+  nameMessage.classList = `help nameMessage`;
+  nameMessage.textContent = ``;
+
+  const rowMessage = document.querySelector(".rowMessage");
+  rowMessage.classList = `help rowMessage`;
+  rowMessage.textContent = ``;
+
+  const columnMessage = document.querySelector(".columnMessage");
+  columnMessage.classList = `help columnMessage`;
+  columnMessage.textContent = ``;
+
+  const yearInstalledMessage = document.querySelector(".yearInstalledMessage");
+  yearInstalledMessage.classList = `help yearInstalledMessage`;
+  yearInstalledMessage.textContent = ``;
+
+  const trackingMessage = document.querySelector(".trackingMessage");
+  trackingMessage.classList = `help trackingMessage`;
+  trackingMessage.textContent = ``;
 }
 
 const createPanelsTable = (solarpanels) => {
@@ -111,44 +145,6 @@ const handleDeletePanel = (p) => {
   solarpanel = solarpanels.filter(sp => sp.id == id)[0];
 
   doDelete(solarpanel.id);
-}
-
-const resetInputStatus = () => {
-  const addFormContainer = document.querySelector(".addFormContainer");
-  const nameInput = addFormContainer.querySelector(".nameInput");
-  const rowInput = addFormContainer.querySelector(".rowInput");
-  const columnInput = addFormContainer.querySelector(".columnInput");
-  const yearInstalledInput = addFormContainer.querySelector(".yearInstalledInput");
-  const materialInput = addFormContainer.querySelector(".materialInput");
-  const trackingYesInput = addFormContainer.querySelector(".trackingYesInput");
-  const trackingNoInput = addFormContainer.querySelector(".trackingNoInput");
-
-  nameInput.classList = `input nameInput`;
-  rowInput.classList = `input rowInput`;
-  columnInput.classList = `input columnInput`;
-  yearInstalledInput.classList = `input yearInstalledInput`;
-  trackingYesInput.classList = `trackingYesInput`;
-  trackingNoInput.classList = `trackingNoInput`;
-
-  const nameMessage = document.querySelector(".nameMessage");
-  nameMessage.classList = `help nameMessage`;
-  nameMessage.textContent = ``;
-
-  const rowMessage = document.querySelector(".rowMessage");
-  rowMessage.classList = `help rowMessage`;
-  rowMessage.textContent = ``;
-
-  const columnMessage = document.querySelector(".columnMessage");
-  columnMessage.classList = `help columnMessage`;
-  columnMessage.textContent = ``;
-
-  const yearInstalledMessage = document.querySelector(".yearInstalledMessage");
-  yearInstalledMessage.classList = `help yearInstalledMessage`;
-  yearInstalledMessage.textContent = ``;
-
-  const trackingMessage = document.querySelector(".trackingMessage");
-  trackingMessage.classList = `help trackingMessage`;
-  trackingMessage.textContent = ``;
 }
 
 const validateInputs = (nameInput, rowInput, columnInput, yearInstalledInput, trackingYesInput, trackingNoInput) => {
