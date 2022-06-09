@@ -83,13 +83,18 @@ const resetInputStatus = () => {
   trackingMessage.textContent = ``;
 }
 
-////////////////////////   Hiders (Table and form)    //////////////////////////
+////////////////////////   Hiders and Showers (Table and form)    //////////////////////////
 const hideFormAndTable = () => {
   const allPanelsTable = document.querySelector(".allPanels");
   const addFormContainer = document.querySelector(".addFormContainer");
 
   allPanelsTable.classList.add(`hidden`);
   addFormContainer.classList.add(`hidden`);
+}
+
+const showForm = () => {
+  const addFormContainer = document.querySelector(".addFormContainer");
+  addFormContainer.classList.remove(`hidden`);
 }
 
 ///////////////////////     Creates      //////////////////////////////////////
@@ -126,9 +131,7 @@ const handleAddPanelLinkClick = () => {
   resetInputStatus();
 
   hideFormAndTable();
-
-  const addFormContainer = document.querySelector(".addFormContainer");
-  addFormContainer.classList.remove(`hidden`);
+  showForm();
 }
 
 const handleUpdatePanelLinkClick = (p) => {
@@ -143,9 +146,7 @@ const handleUpdatePanelLinkClick = (p) => {
   const id = solarpanelClass.split("solarpanel")[1];
 
   hideFormAndTable();
-
-  const addFormContainer = document.querySelector(".addFormContainer");
-  addFormContainer.classList.remove(`hidden`);
+  showForm();
 
   solarpanel = solarpanels.filter(sp => sp.id == id)[0];
 
