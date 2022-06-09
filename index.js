@@ -52,11 +52,19 @@ const resetInputStatus = () => {
   trackingMessage.textContent = ``;
 }
 
+////////////////////////   Hiders (Table and form)    //////////////////////////
+const hideFormAndTable = () => {
+  const allPanelsTable = document.querySelector(".allPanels");
+  const addFormContainer = document.querySelector(".addFormContainer");
+
+  allPanelsTable.classList.add(`hidden`);
+  addFormContainer.classList.add(`hidden`);
+}
+///////////////////////     Creates      //////////////////////////////////////
 const createPanelsTable = (solarpanels) => {
 
   const allPanelsTable = document.querySelector(".allPanels");
   const tBody = allPanelsTable.tBodies[0];
-
 
   const tableRows = solarpanels.map( (sp, i) => {
 
@@ -65,7 +73,7 @@ const createPanelsTable = (solarpanels) => {
         <td>${sp.section}</td>
         <td>${sp.row}-${sp.column}</td>
         <td>${sp.yearInstalled}</td>
-        <td>${sp.material}</td>
+        <td>${getAbbrFromMaterial(sp.material)}</td>
         <td>${sp.tracking ? "yes" : "no"}</td>
         <td><ion-icon name="create-outline" class="updatePanelLink solarpanel${sp.id}" style="cursor: pointer;""></ion-icon></td>
         <td><ion-icon name="trash-bin-outline" class="deletePanelLink solarpanel${sp.id}" style="cursor: pointer;"></ion-icon></td>
@@ -76,20 +84,11 @@ const createPanelsTable = (solarpanels) => {
   });
 }
 
-const hideFormAndTable = () => {
-  const allPanelsTable = document.querySelector(".allPanels");
-  const addFormContainer = document.querySelector(".addFormContainer");
-
-  allPanelsTable.classList.add(`hidden`);
-  addFormContainer.classList.add(`hidden`);
-}
-
-
+///////////////////////// Click Handlers ///////////////////////////////////////
 const handleAddPanelLinkClick = () => {
   // edit button class
   const submitButton = document.querySelector(".submitButton");
   submitButton.classList.remove('editing');
-  console.log(submitButton);
 
   resetInputValues();
   resetInputStatus();
@@ -104,8 +103,6 @@ const handleUpdatePanelLinkClick = (p) => {
   // edit button class
   const submitButton = document.querySelector(".submitButton");
   submitButton.classList.add('editing');
-  console.log(p);
-  console.log(submitButton);
 
   resetInputValues();
   resetInputStatus();
@@ -147,6 +144,7 @@ const handleDeletePanel = (p) => {
   doDelete(solarpanel.id);
 }
 
+///////////////////    Form input validation    ////////////////////////////////
 const validateInputs = (nameInput, rowInput, columnInput, yearInstalledInput, trackingYesInput, trackingNoInput) => {
   let isError = false;
   resetInputStatus();
