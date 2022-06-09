@@ -43,19 +43,19 @@ const resetPanelsTable = () => {
 }
 
 const resetInputValues = () => {
-  const addFormContainer = document.querySelector(".addFormContainer");
-  const nameInput = addFormContainer.querySelector(".nameInput").value = ``;
-  const rowInput = addFormContainer.querySelector(".rowInput").value = ``;
-  const columnInput = addFormContainer.querySelector(".columnInput").value = ``;
-  const yearInstalledInput = addFormContainer.querySelector(".yearInstalledInput").value = ``;
+  const formContainer = document.querySelector(".formContainer");
+  const nameInput = formContainer.querySelector(".nameInput").value = ``;
+  const rowInput = formContainer.querySelector(".rowInput").value = ``;
+  const columnInput = formContainer.querySelector(".columnInput").value = ``;
+  const yearInstalledInput = formContainer.querySelector(".yearInstalledInput").value = ``;
 }
 
 const resetInputStatus = () => {
-  const addFormContainer = document.querySelector(".addFormContainer");
-  const nameInput = addFormContainer.querySelector(".nameInput");
-  const rowInput = addFormContainer.querySelector(".rowInput");
-  const columnInput = addFormContainer.querySelector(".columnInput");
-  const yearInstalledInput = addFormContainer.querySelector(".yearInstalledInput");
+  const formContainer = document.querySelector(".formContainer");
+  const nameInput = formContainer.querySelector(".nameInput");
+  const rowInput = formContainer.querySelector(".rowInput");
+  const columnInput = formContainer.querySelector(".columnInput");
+  const yearInstalledInput = formContainer.querySelector(".yearInstalledInput");
 
   nameInput.classList = `input nameInput`;
   rowInput.classList = `input rowInput`;
@@ -86,15 +86,15 @@ const resetInputStatus = () => {
 ////////////////////////   Hiders and Showers (Table and form)    //////////////////////////
 const hideFormAndTable = () => {
   const allPanelsTable = document.querySelector(".allPanels");
-  const addFormContainer = document.querySelector(".addFormContainer");
+  const formContainer = document.querySelector(".formContainer");
 
   allPanelsTable.classList.add(`hidden`);
-  addFormContainer.classList.add(`hidden`);
+  formContainer.classList.add(`hidden`);
 }
 
 const showForm = () => {
-  const addFormContainer = document.querySelector(".addFormContainer");
-  addFormContainer.classList.remove(`hidden`);
+  const formContainer = document.querySelector(".formContainer");
+  formContainer.classList.remove(`hidden`);
 }
 
 ///////////////////////     Creates      //////////////////////////////////////
@@ -150,13 +150,13 @@ const handleUpdatePanelLinkClick = (p) => {
 
   solarpanel = solarpanels.filter(sp => sp.id == id)[0];
 
-  const nameInput = addFormContainer.querySelector(".nameInput").value = solarpanel.section;
-  const rowInput = addFormContainer.querySelector(".rowInput").value = solarpanel.row;
-  const columnInput = addFormContainer.querySelector(".columnInput").value = solarpanel.column;
-  const yearInstalledInput = addFormContainer.querySelector(".yearInstalledInput").value = solarpanel.yearInstalled;
-  const materialInput = addFormContainer.querySelector(".materialInput").value = getAbbrFromMaterial(solarpanel.material);
-  const trackingYesInput = addFormContainer.querySelector(".trackingYesInput");
-  const trackingNoInput = addFormContainer.querySelector(".trackingNoInput");
+  const nameInput = formContainer.querySelector(".nameInput").value = solarpanel.section;
+  const rowInput = formContainer.querySelector(".rowInput").value = solarpanel.row;
+  const columnInput = formContainer.querySelector(".columnInput").value = solarpanel.column;
+  const yearInstalledInput = formContainer.querySelector(".yearInstalledInput").value = solarpanel.yearInstalled;
+  const materialInput = formContainer.querySelector(".materialInput").value = getAbbrFromMaterial(solarpanel.material);
+  const trackingYesInput = formContainer.querySelector(".trackingYesInput");
+  const trackingNoInput = formContainer.querySelector(".trackingNoInput");
 
   if (solarpanel.tracking) {
     trackingYesInput.checked = true;
@@ -249,14 +249,14 @@ const updateFormMessage = (message, isSuccess) => {
 
 const handleSubmitPanel = (isEditing) => {
 
-  const addFormContainer = document.querySelector(".addFormContainer");
-  const nameInput = addFormContainer.querySelector(".nameInput");
-  const rowInput = addFormContainer.querySelector(".rowInput");
-  const columnInput = addFormContainer.querySelector(".columnInput");
-  const yearInstalledInput = addFormContainer.querySelector(".yearInstalledInput");
-  const materialInput = addFormContainer.querySelector(".materialInput");
-  const trackingYesInput = addFormContainer.querySelector(".trackingYesInput");
-  const trackingNoInput = addFormContainer.querySelector(".trackingNoInput");
+  const formContainer = document.querySelector(".formContainer");
+  const nameInput = formContainer.querySelector(".nameInput");
+  const rowInput = formContainer.querySelector(".rowInput");
+  const columnInput = formContainer.querySelector(".columnInput");
+  const yearInstalledInput = formContainer.querySelector(".yearInstalledInput");
+  const materialInput = formContainer.querySelector(".materialInput");
+  const trackingYesInput = formContainer.querySelector(".trackingYesInput");
+  const trackingNoInput = formContainer.querySelector(".trackingNoInput");
 
   const isError = validateInputs(nameInput, rowInput, columnInput, yearInstalledInput, trackingYesInput, trackingNoInput);
   if (isError) {
