@@ -292,7 +292,17 @@ const addFormEventListeners = () => {
     } else {
       handleSubmitPanel(false);
     }
-  })
+  });
+
+  const cancelButton = document.querySelector(".cancelButton");
+  cancelButton.addEventListener("click", () => {
+    resetInputStatus();
+    resetInputValues();
+
+    hideFormAndTable();
+    const allPanels = document.querySelector(".allPanels");
+    allPanels.classList.remove(`hidden`);
+  });
 
 }
 
